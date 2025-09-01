@@ -68,11 +68,11 @@ export const CsrLogin = () => {
 
     await signIn("credentials", {
       jwt: JSON.stringify({
-        id: "akhsfl",
-        username: "yasser-alnajjar",
-        email: "yasseralnajjar@gmail.com",
-        first_name: "yasser",
-        last_name: "alnajjar",
+        id: "admin-12342",
+        username: "admin",
+        email: "admin@gmail.com",
+        first_name: "admin",
+        last_name: "admin-2",
         updated_at: "2024-01-01",
         created_at: "2023-01-01",
       }),
@@ -97,7 +97,7 @@ export const CsrLogin = () => {
           fields={fields}
           initialValues={{
             email: "admin@example.com",
-            password: "password",
+            password: "P@ssw0rd",
           }}
           validationSchema={validationSchema}
           onSubmit={onSubmit}
