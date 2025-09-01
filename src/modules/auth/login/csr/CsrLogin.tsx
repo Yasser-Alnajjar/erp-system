@@ -9,7 +9,7 @@ import { Button, DynamicForm, GrowSpinner } from "@components";
 import * as Yup from "yup";
 import { Regex } from "@lib/regex";
 import { useLocale } from "next-intl";
-import { Actions } from "@lib/actions";
+// import { Actions } from "@lib/actions";
 export const CsrLogin = () => {
   const t = useTranslate("auth");
   const { toast } = useToast();
@@ -96,8 +96,8 @@ export const CsrLogin = () => {
         <DynamicForm
           fields={fields}
           initialValues={{
-            email: "",
-            password: "",
+            email: "admin@example.com",
+            password: "password",
           }}
           validationSchema={validationSchema}
           onSubmit={onSubmit}
