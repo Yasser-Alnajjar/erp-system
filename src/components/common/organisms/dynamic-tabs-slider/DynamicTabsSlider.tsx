@@ -47,7 +47,7 @@ export function DynamicTabsSlider<T>({
           <TabsTrigger
             key={status}
             value={status}
-            className="capitalize h-6 px-2 text-xs data-[state='active']:!shadow-none data-[state='active']:!bg-gray-300 hover:!bg-foreground/20"
+            className="capitalize h-6 px-2 text-sm data-[state='active']:!shadow-none data-[state='active']:!bg-gray-300 hover:!bg-foreground/20"
           >
             {status.charAt(0).toUpperCase() + status.slice(1)} (
             {data.filter((item) => getStatus(item) === status).length})

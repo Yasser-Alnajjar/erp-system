@@ -10,5 +10,10 @@
     "password-required": "Password is required",
     "login-success": "Login successful",
     "welcome-back": "Welcome back"
+  },
+  "stepper_form": {
+    "back": "Back",
+    "submit": "Submit",
+    "next": "Next"
   }
 }

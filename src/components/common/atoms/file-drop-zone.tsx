@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
-import React, { useRef, useState, useEffect } from "react";
-import { UploadCloud, X } from "lucide-react";
-import { cn } from "@lib/utils";
+import React, { useRef, useState } from "react";
+import { Check, UploadCloud } from "lucide-react";
 import { Button } from "@components";
+import { cn } from "@lib/utils";
 
 interface FileDropZoneProps {
   value?: File[];
@@ -18,8 +17,6 @@ export function FileDropZone({
   onChange,
 }: FileDropZoneProps) {
   const [files, setFiles] = useState<File[]>(value);
-  const [previews, setPreviews] = useState<(string | null)[]>([]);
-  const [isDragging, setIsDragging] = useState(false);
   const inputRef = useRef<HTMLInputElement | null>(null);
 
   const handleFiles = (fileList: FileList | null) => {
@@ -27,135 +24,56 @@ export function FileDropZone({
     const fileArray = Array.from(fileList);
     setFiles(fileArray);
     onChange?.(fileArray);
-
-    const urls = fileArray.map((file) =>
-      file.type.startsWith("image/") ? URL.createObjectURL(file) : null
-    );
-    setPreviews(urls);
-  };
-
-  const removeFile = (indexToRemove: number) => {
-    const file = files[indexToRemove];
-    if (file.type.startsWith("image/") && previews[indexToRemove]) {
-      URL.revokeObjectURL(previews[indexToRemove]!);
-    }
-
-    const updatedFiles = files.filter((_, i) => i !== indexToRemove);
-    const updatedPreviews = previews.filter((_, i) => i !== indexToRemove);
-
-    setFiles(updatedFiles);
-    setPreviews(updatedPreviews);
-    onChange?.(updatedFiles);
   };
 
   const handleDrop = (e: React.DragEvent<HTMLDivElement>) => {
     e.preventDefault();
-    setIsDragging(false);
     handleFiles(e.dataTransfer.files);
   };
 
-  const handleDragOver = (e: React.DragEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    setIsDragging(true);
-  };
-
-  const handleDragLeave = () => setIsDragging(false);
   const handleClick = () => inputRef.current?.click();
 
-  useEffect(() => {
-    return () => {
-      previews.forEach((url) => {
-        if (url) URL.revokeObjectURL(url);
-      });
-    };
-  }, [previews]);
-
   return (
-    <div
-      onClick={handleClick}
-      onDrop={handleDrop}
-      onDragOver={handleDragOver}
-      onDragLeave={handleDragLeave}
-      className={cn(
-        "w-full border-2 border-dashed rounded-lg text-center cursor-pointer transition-colors duration-200 flex flex-col items-center justify-center space-y-4 px-4 py-6",
-        isDragging ? "border-blue-500 bg-blue-50" : "border-muted"
-      )}
-    >
-      <input
-        ref={inputRef}
-        type="file"
-        className="hidden"
-        multiple={multiple}
-        onChange={(e) => handleFiles(e.target.files)}
-      />
+    <div className="w-full space-y-4">
+      {/* صندوق الرفع */}
+      <div
+        onClick={handleClick}
+        onDrop={handleDrop}
+        onDragOver={(e) => e.preventDefault()}
+        className={cn(
+          "w-full border-2 border-input border-dashed rounded-xl text-center cursor-pointer transition-colors duration-200 flex flex-col items-center justify-center px-4 py-16 bg-blue-50"
+        )}
+      >
+        <input
+          ref={inputRef}
+          type="file"
+          multiple={multiple}
+          className="hidden"
+          onChange={(e) => handleFiles(e.target.files)}
+        />
 
-      {files.length === 0 && (
-        <div className="flex flex-col items-center justify-center text-sm text-muted-foreground space-y-2">
-          <UploadCloud className="w-6 h-6 text-blue-500" />
-          <p>
-            {isDragging
-              ? "Drop the files here..."
-              : "Click or drag files to upload"}
-          </p>
-        </div>
-      )}
+        <UploadCloud className="w-10 h-10 mb-2" />
+        <p className="font-bold">اسحب و أفلت الملفات هنا للرفع</p>
+        <p className="text-sm font-light">
+          الحد الأقصى لحجم الملف المسموح به هو 10 ميجا بايت، وتشمل الصيغ
+          المدعومة .jpg و .png و .pdf
+        </p>
 
+        <Button className="mt-4 rounded-md px-4 py-2">تصفح الملفات</Button>
+      </div>
       {files.length > 0 && (
-        <div className="max-h-96 overflow-y-auto space-y-4 w-full">
-          {files.map((file, index) => (
-            <div
-              key={index}
-              className="relative group rounded-lg overflow-hidden shadow-md"
-            >
-              {file.type.startsWith("image/") && previews[index] ? (
-                <div className="relative w-full flex items-center justify-center min-h-40">
-                  <div className="flex items-center gap-2 absolute top-0 start-0 bg-black p-2 rounded text-xxs z-50">
-                    <button
-                      type="button"
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        removeFile(index);
-                      }}
-                      className="bg-transparent border border-transparent cursor-pointer hover:border-foreground text-red-500 rounded-full p-1 shadow"
-                    >
-                      <X size={12} />
-                    </button>
-                    {file.name}
-                  </div>
-                  <Image
-                    src={previews[index]!}
-                    alt={`preview-${index}`}
-                    className="object-contain h-64"
-                    width={256}
-                    height={256}
-                  />
-                </div>
-              ) : (
-                <div className="flex items-center gap-2 text-sm bg-foreground/10 rounded-lg p-2">
-                  <Button
-                    type="button"
-                    onClick={(e) => {
-                      e.stopPropagation();
-                      removeFile(index);
-                    }}
-                    variant="tint"
-                    size="icon"
-                    className="cursor-pointer text-red-500 rounded-full"
-                  >
-                    <X size={14} />
-                  </Button>
-                  <div className="flex flex-col text-xxs justify-start gap-0.5">
-                    <span className="text-start">{file.name}</span>
-                    <span className="text-start">
-                      {file.size >= 1024 * 1024
-                        ? `${(file.size / 1024 / 1024).toFixed(2)} MB`
-                        : `${Math.ceil(file.size / 1024)} KB`}
-                    </span>
-                  </div>
-                </div>
-              )}
+        <div className="flex flex-col md:flex-row gap-4">
+          <div className="flex-1 flex items-center justify-between border rounded-xl px-4 py-2">
+            <div className="flex items-center gap-2">
+              <span className="flex items-center justify-center size-5 bg-primary text-cta-foreground rounded-full">
+                <Check size={14} />
+              </span>
+              <span className="">{files[0].name}</span>
             </div>
-          ))}
+          </div>
+          <div className="flex-1 flex items-center justify-between border rounded-xl px-4 py-2">
+            {files[0].type}
+          </div>
         </div>
       )}
     </div>

@@ -44,7 +44,9 @@ export default async function LocaleLayout(props: Props) {
                 disableTransitionOnChange
               >
                 <Toaster />
-                {children}
+                <main className="flex flex-1 flex-col gap-4  mx-10">
+                  {children}
+                </main>
               </ThemeProvider>
             </AuthProvider>
           </NextIntlClientProvider>

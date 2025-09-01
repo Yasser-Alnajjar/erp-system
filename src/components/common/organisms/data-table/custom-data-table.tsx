@@ -78,7 +78,7 @@ export function CustomDataTable<TData, TValue>({
                 {headerGroup.headers.map((header) => (
                   <TableHead
                     key={header.id}
-                    className="text-xs text-foreground"
+                    className="text-sm text-foreground"
                     style={{ width: header.getSize() }}
                   >
                     {flexRender(
@@ -96,7 +96,7 @@ export function CustomDataTable<TData, TValue>({
                 {row.getVisibleCells().map((cell) => (
                   <TableCell
                     key={cell.id}
-                    className="text-xs"
+                    className="text-sm"
                     style={{
                       width: cell.column.getSize(),
                     }}

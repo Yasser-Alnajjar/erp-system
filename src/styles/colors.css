@@ -1,9 +1,11 @@
 @theme {
   --radius: 0.65rem;
   --color-background: #ffffff;
-  --color-foreground: #121212;
-  --color-primary: #0077c3;
-  --color-primary-foreground: #ffffff;
+  --color-foreground: #111111;
+  --color-primary: #0057b8;
+  --color-cta: #0077c3;
+  --color-cta-foreground: #ffffff;
+
   --color-secondary: #2563eb;
   --color-secondary-foreground: #fff8fd;
 
@@ -25,7 +27,7 @@
   --color-accent: #f4f6fa;
   --color-accent-foreground: #394e6a;
   --color-border: #f4f6fa;
-  --color-input: #e4e4e7;
+  --color-input: #111111b2;
 
   /* Charts */
   --color-chart-1: #d1d5db;
@@ -41,7 +43,7 @@
   --color-sidebar: #f9fafc;
   --color-sidebar-foreground: #394e6a;
   --color-sidebar-primary: #3b82f6;
-  --color-sidebar-primary-foreground: #394e6a;
+  --color-sidebar-cta-foreground: #394e6a;
   --color-sidebar-accent: #ffffff;
   --color-sidebar-accent-foreground: #394e6a;
   --color-sidebar-border: #e4e4e7;
@@ -62,7 +64,7 @@
   --color-background: #121212;
   --color-foreground: #ffffff;
   --color-primary: #3b82f6;
-  --color-primary-foreground: #cccccc;
+  --color-cta-foreground: #cccccc;
   --color-secondary: #2563eb;
   --color-secondary-foreground: #b2ccd6;
   /* Custom Colors */
@@ -98,7 +100,7 @@
   --color-sidebar: #242933;
   --color-sidebar-foreground: #b2ccd6;
   --color-sidebar-primary: #0284c7;
-  --color-sidebar-primary-foreground: #b2ccd6;
+  --color-sidebar-cta-foreground: #b2ccd6;
   --color-sidebar-accent: #2a303c;
   --color-sidebar-accent-foreground: #b2ccd6;
   --color-sidebar-border: #ffffff1a;

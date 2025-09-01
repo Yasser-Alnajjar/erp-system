@@ -653,8 +653,12 @@ function deepEqual(a: any, b: any): boolean {
 
   return true;
 }
+function isValidDate(date: unknown): date is Date {
+  return date instanceof Date && !isNaN(date.getTime());
+}
 
 export const Utils = {
+  isValidDate,
   withoutProperty,
   loadJSON,
   objToArrayOfKeyAndValue,

@@ -236,7 +236,7 @@ export function DataTable<TData, TValue>({
         </div>
       )}
 
-      <div className="overflow-x-auto [&_*]:text-xs">
+      <div className="overflow-x-auto [&_*]:text-sm">
         <Table className="table-auto w-full">
           <TableHeader>
             {table.getHeaderGroups().map((headerGroup) => (

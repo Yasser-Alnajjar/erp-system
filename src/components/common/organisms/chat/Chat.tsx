@@ -51,7 +51,7 @@ export const Chat = () => {
               </Button>
             </SheetClose>
           </div>
-          <SheetDescription className="text-xs">
+          <SheetDescription className="text-sm">
             (BETA) Ask the AI anything. Please click
             <span className="text-primary underline cursor-pointer px-1">
               here
@@ -66,7 +66,7 @@ export const Chat = () => {
               <div className="mb-4 last:mb-0 flex justify-end px-8">
                 <div
                   className={cn(
-                    "relative  bg-chat text-white text-xs px-4 py-2 rounded-2xl rounded-ee-none w-fit",
+                    "relative  bg-chat text-white text-sm px-4 py-2 rounded-2xl rounded-ee-none w-fit",
                     "before:absolute before:bottom-0 before:bg-chat before:-end-2 before:size-4 before:[clip-path:polygon(0_37%,_0_100%,_100%_100%)]"
                   )}
                 >
@@ -76,7 +76,7 @@ export const Chat = () => {
               <div className="mb-4 last:mb-0  px-8">
                 <div
                   className={cn(
-                    "relative mb-4 last:mb-0 bg-chat text-white text-xs px-4 py-2 rounded-2xl rounded-es-none w-fit",
+                    "relative mb-4 last:mb-0 bg-chat text-white text-sm px-4 py-2 rounded-2xl rounded-es-none w-fit",
                     "before:absolute before:bottom-0 before:bg-chat before:-start-2 before:size-4 before:[clip-path:polygon(100%_37%,_0_100%,_100%_100%)]"
                   )}
                 >

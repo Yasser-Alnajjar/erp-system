@@ -178,7 +178,7 @@ export function DataTableColumnFilter<TData, TValue>({
                 variant="outline"
                 size="sm"
                 onClick={clearFilter}
-                className="text-xs"
+                className="text-sm"
               >
                 Clear
               </Button>

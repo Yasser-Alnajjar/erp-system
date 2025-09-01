@@ -60,7 +60,7 @@ export const DynamicForm: React.FC<DynamicFormProps> = ({
                         <label
                           htmlFor={field.name}
                           className={cn(
-                            "text-xs font-medium",
+                            "text-sm font-medium",
                             field.labelClassName
                           )}
                         >
@@ -73,7 +73,7 @@ export const DynamicForm: React.FC<DynamicFormProps> = ({
                     </div>
                     {formik?.touched[field.name] &&
                       formik?.errors[field.name] && (
-                        <small className="text-xs text-red-500">
+                        <small className="text-sm text-red-500">
                           {formik?.errors[field.name]?.toString()}
                         </small>
                       )}

@@ -7,12 +7,12 @@ import { cn } from "@lib/utils";
 import { Link } from "@navigation";
 
 const buttonVariants = cva(
-  "animation-pop cursor-pointer scale-100 active:scale-95 transform transition-[scale,color,background]  ease-out flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-xs font-medium focus-visible:outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
+  "animation-pop cursor-pointer scale-100 active:scale-95 transform transition-[scale,color,background]  ease-out flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium focus-visible:outline-none ring-offset-background focus-visible:ring-2 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
   {
     variants: {
       variant: {
         default:
-          "bg-primary text-primary-foreground hover:bg-[color-mix(in_oklab,_var(--color-primary)_90%,_black)]  focus-visible:ring-primary",
+          "bg-cta text-cta-foreground hover:bg-[color-mix(in_oklab,_var(--color-cta)_90%,_black)]  focus-visible:ring-cta",
         tint: "bg-gray-200 hover:bg-[color-mix(in_oklab,_var(--color-gray-200)_90%,_black)] focus-visible:ring-gray-200",
         success:
           "bg-success text-white  hover:bg-[color-mix(in_oklab,_var(--color-success)_90%,_black)] focus-visible:ring-success",
@@ -21,7 +21,7 @@ const buttonVariants = cva(
         warning:
           "bg-warning text-white hover:bg-[color-mix(in_oklab,_var(--color-warning)_90%,_black)] focus-visible:ring-warning",
         outline:
-          "border border-input bg-background hover:bg-accent hover:text-accent-foreground focus-visible:ring-accent",
+          "border border-cta text-cta bg-background hover:bg-cta hover:text-white focus-visible:ring-cta",
         secondary:
           "bg-secondary text-secondary-foreground hover:bg-secondary/80 focus-visible:ring-secondary",
         ghost:

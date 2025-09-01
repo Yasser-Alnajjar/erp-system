@@ -37,7 +37,7 @@ export const CsrLogin = () => {
       type: "password",
       placeholder: t("password"),
       label: (
-        <div className="flex items-center justify-between gap-2 text-xs">
+        <div className="flex items-center justify-between gap-2 text-sm">
           <label>{t("password")}</label>
           <Link href="/reset-password" className="hover:underline text-primary">
             {t("forgot-password")}

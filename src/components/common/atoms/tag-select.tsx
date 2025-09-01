@@ -69,14 +69,14 @@ export function TagSelect({
         onClick={() => setExpanded((prev) => !prev)}
       >
         <div className="flex items-center justify-between gap-2 px-3 py-2">
-          <div className="flex items-center flex-wrap gap-2 text-xs">
+          <div className="flex items-center flex-wrap gap-2 text-sm">
             {selected.length === 0 ? (
-              <p className="text-xs font-semibold select-none">{placeholder}</p>
+              <p className="text-sm font-semibold select-none">{placeholder}</p>
             ) : (
               selected.map((tag, index) => (
                 <div
                   key={index}
-                  className="select-none capitalize bg-gray-200 px-2 py-1 text-xs font-medium rounded-full flex items-center gap-1"
+                  className="select-none capitalize bg-gray-200 px-2 py-1 text-sm font-medium rounded-full flex items-center gap-1"
                 >
                   <span>{tag}</span>
                   <Button
@@ -86,7 +86,7 @@ export function TagSelect({
                       e.stopPropagation();
                       handleRemove(tag);
                     }}
-                    className="size-4 text-xs p-0 text-red-500 hover:text-red-500"
+                    className="size-4 text-sm p-0 text-red-500 hover:text-red-500"
                   >
                     <X className="size-3" />
                   </Button>
@@ -106,7 +106,7 @@ export function TagSelect({
                   key={index}
                   role="option"
                   aria-selected={false}
-                  className="select-none capitalize hover:cursor-pointer hover:bg-gray-200 hover:p-2 hover:rounded-lg mx-5 text-xs font-semibold mb-2"
+                  className="select-none capitalize hover:cursor-pointer hover:bg-gray-200 hover:p-2 hover:rounded-lg mx-5 text-sm font-semibold mb-2"
                   onClick={(e) => {
                     e.stopPropagation();
                     handleSelect(tag);
