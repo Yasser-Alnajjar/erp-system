@@ -3,8 +3,8 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    template: `%s | Falcon Focus`,
-    default: "Falcon Focus",
+    template: `%s | erp system`,
+    default: "erp system",
   },
 };
 
