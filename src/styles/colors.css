@@ -1,0 +1,112 @@
+@theme {
+  --radius: 0.65rem;
+  --color-background: #ffffff;
+  --color-foreground: #121212;
+  --color-primary: #0077c3;
+  --color-primary-foreground: #ffffff;
+  --color-secondary: #2563eb;
+  --color-secondary-foreground: #fff8fd;
+
+  /* Custom Colors */
+  --color-gray: #f1f2f4;
+  --color-gray-100: #ffffffe6;
+  --color-gray-200: #f9fafc;
+  --color-gray-300: #f4f6fa;
+  --color-gray-400: #e5e5e5;
+  --color-gray-500: #cacbcc;
+  --color-gray-600: #9ca3af;
+  --color-gray-700: #d7dbe2;
+
+  /* Common */
+  --color-popover: #ffffff;
+  --color-popover-foreground: #394e6a;
+  --color-muted: #ebedef;
+  --color-muted-foreground: #394e6a;
+  --color-accent: #f4f6fa;
+  --color-accent-foreground: #394e6a;
+  --color-border: #f4f6fa;
+  --color-input: #e4e4e7;
+
+  /* Charts */
+  --color-chart-1: #d1d5db;
+  --color-chart-2: #34d399;
+  --color-chart-3: #c65a5a;
+  --color-chart-4: #fbbf24;
+  --color-chart-5: #f87f7f;
+
+  /* Chat */
+  --color-chat: #2b3440;
+
+  /* Sidebar */
+  --color-sidebar: #f9fafc;
+  --color-sidebar-foreground: #394e6a;
+  --color-sidebar-primary: #3b82f6;
+  --color-sidebar-primary-foreground: #394e6a;
+  --color-sidebar-accent: #ffffff;
+  --color-sidebar-accent-foreground: #394e6a;
+  --color-sidebar-border: #e4e4e7;
+  --color-sidebar-ring: #3b82f6;
+
+  /* Status */
+  --color-info: #55cbd3;
+  --color-success: #22c55e;
+  --color-warning: #eab308;
+  --color-error: #ef4444;
+  --color-dark-info: #2c3844;
+  --color-dark-success: #253739;
+  --color-dark-warning: #393232;
+  --color-dark-error: #3c2b35;
+}
+
+.dark {
+  --color-background: #121212;
+  --color-foreground: #ffffff;
+  --color-primary: #3b82f6;
+  --color-primary-foreground: #cccccc;
+  --color-secondary: #2563eb;
+  --color-secondary-foreground: #b2ccd6;
+  /* Custom Colors */
+  --color-gray: #232831;
+  --color-gray-100: #2a303c;
+  --color-gray-200: #242933;
+  --color-gray-300: #20252e;
+  --color-gray-400: #e5e5e5;
+  --color-gray-500: #2b3440;
+  --color-gray-700: #d7dbe2;
+
+  /* Common */
+  --color-popover: #2a303c;
+  --color-popover-foreground: #b2ccd6;
+  --color-muted: #393f4a;
+  --color-muted-foreground: #b2ccd6;
+  --color-accent: #242933;
+  --color-accent-foreground: #b2ccd6;
+  --color-border: #20252e;
+  --color-input: #ffffff26;
+
+  /* Charts */
+  --color-chart-1: #d1d5db;
+  --color-chart-2: #34d399;
+  --color-chart-3: #c65a5a;
+  --color-chart-4: #fbbf24;
+  --color-chart-5: #f87f7f;
+
+  /* Chat */
+  --color-chat: #2b3440;
+
+  /* Sidebar */
+  --color-sidebar: #242933;
+  --color-sidebar-foreground: #b2ccd6;
+  --color-sidebar-primary: #0284c7;
+  --color-sidebar-primary-foreground: #b2ccd6;
+  --color-sidebar-accent: #2a303c;
+  --color-sidebar-accent-foreground: #b2ccd6;
+  --color-sidebar-border: #ffffff1a;
+  --color-sidebar-ring: #b2ccd6;
+
+  /* Status */
+  --color-info: #55cbd3;
+  --color-success: #22c55e;
+  --color-warning: #eab308;
+  --color-error: #fc605f;
+}

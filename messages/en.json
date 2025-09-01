@@ -1,0 +1,14 @@
+{
+  "auth": {
+    "login": "Login",
+    "password": "Password",
+    "email": "Email",
+    "forgot-password": "Forgot Password?",
+    "email-format": "Email format is invalid",
+    "email-required": "Email is required",
+    "password-format": "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, one number, and one special character.",
+    "password-required": "Password is required",
+    "login-success": "Login successful",
+    "welcome-back": "Welcome back"
+  }
+}

@@ -1,0 +1,48 @@
+{
+  "menuData": [
+    {
+      "title": "Dashboard",
+      "icon": "/images/menu-icons/dashboard.svg",
+      "link": "/",
+      "matcher": "/",
+      "allowedRoles": [
+        "__administrator",
+        "__marketingManager",
+        "Call Center Agent",
+        "__storeManager"
+      ],
+      "children": []
+    },
+    {
+      "title": "Catalog",
+      "icon": "/images/menu-icons/dashboard.svg",
+      "link": "/#",
+      "matcher": "^/(catalogs|categories|products|vendors|manufacturers|product-reviews|product-tags)(?:/.*)?$",
+      "allowedRoles": ["__administrator", "Call Center Agent"],
+      "children": [
+        {
+          "title": "Catalogs",
+          "icon": "/images/menu-icons/dashboard.svg",
+          "link": "/catalogs/list",
+          "matcher": "^/catalogs(?:/.*)?$",
+          "allowedRoles": [
+            "__administrator",
+            "Call Center Agent",
+            "__storeManager"
+          ]
+        },
+        {
+          "title": "Categories",
+          "icon": "/images/menu-icons/dashboard.svg",
+          "link": "/categories/list",
+          "matcher": "^/categories(?:/.*)?$",
+          "allowedRoles": [
+            "__administrator",
+            "Call Center Agent",
+            "__storeManager"
+          ]
+        }
+      ]
+    }
+  ]
+}
