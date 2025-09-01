@@ -3,7 +3,7 @@ import { defineRouting } from "next-intl/routing";
 
 export const locales = ["ar", "en"] as const;
 export type LocaleTypes = (typeof locales)[number];
-export const localePrefix = "always";
+export const localePrefix = "as-needed";
 export const defaultLocale = "ar";
 export const defaultLanguageCode = "ar-EG";
 

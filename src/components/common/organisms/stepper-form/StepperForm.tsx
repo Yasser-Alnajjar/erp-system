@@ -42,6 +42,16 @@ export const StepperForm = ({
           <CurrentComponent {...formik} />
 
           <div className="flex justify-end gap-2">
+            {toggleForm && (
+              <Button
+                type="button"
+                variant="outline"
+                className="text-error border-error hover:bg-error hover:text-white"
+                onClick={toggleForm}
+              >
+                إلغاء
+              </Button>
+            )}
             {stepIndex > 0 && (
               <Button type="button" onClick={handleBack} variant="outline">
                 السابق
@@ -49,17 +59,6 @@ export const StepperForm = ({
             )}
             <Button type="submit">{isLastStep ? "حفظ" : "التالي"}</Button>
           </div>
-
-          {toggleForm && (
-            <Button
-              type="button"
-              variant="ghost"
-              onClick={toggleForm}
-              className="mt-4"
-            >
-              إلغاء
-            </Button>
-          )}
         </Form>
       )}
     </Formik>

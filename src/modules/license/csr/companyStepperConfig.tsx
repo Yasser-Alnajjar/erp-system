@@ -329,38 +329,7 @@ const stepTwoFields: IStep = {
 const stepThreeFields: IStep = {
   label: "التراخيص",
   initialValues: {
-    licenses: [
-      {
-        ministry: "hr",
-        address: "Suscipit cumque dolo",
-        activity: "Aliqua Odit ex labo",
-        licenseType: "industrial",
-        licenseNumber: "131",
-        licenseIssueDate: "2025-06-02T21:00:00.000Z",
-        licenseExpiryDate: "2019-07-25T22:00:00.000Z",
-        status: "expired",
-      },
-      {
-        ministry: "commerce",
-        address: "Doloremque mollit ip",
-        activity: "Est sit nemo labore",
-        licenseType: "commercial",
-        licenseNumber: "384",
-        licenseIssueDate: "1975-04-22T22:00:00.000Z",
-        licenseExpiryDate: "2000-04-18T22:00:00.000Z",
-        status: "active",
-      },
-      {
-        ministry: "hr",
-        address: "Sit ratione qui volu",
-        activity: "Perferendis qui sit ",
-        licenseType: "industrial",
-        licenseNumber: "813",
-        licenseIssueDate: "1973-05-06T21:00:00.000Z",
-        licenseExpiryDate: "1989-04-05T22:00:00.000Z",
-        status: "active",
-      },
-    ],
+    licenses: [],
   },
   validationSchema: Yup.object({
     licenses: Yup.array().of(

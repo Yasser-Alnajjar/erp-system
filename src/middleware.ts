@@ -1,4 +1,4 @@
-import { NextRequest, NextResponse } from "next/server";
+import { NextRequest } from "next/server";
 import { withAuth } from "next-auth/middleware";
 import createIntlMiddleware from "next-intl/middleware";
 import { locales, localePrefix, defaultLocale } from "./navigation";
@@ -13,12 +13,6 @@ const intlMiddleware = createIntlMiddleware({
 
 const authMiddleware = withAuth(
   (req) => {
-    const token = req.nextauth.token as any;
-
-    if (token?.user?.super === true && req.nextUrl.pathname === "/") {
-      return NextResponse.redirect(new URL("/projects", req.url));
-    }
-
     return intlMiddleware(req);
   },
   {
