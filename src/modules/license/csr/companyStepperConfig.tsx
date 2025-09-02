@@ -48,6 +48,7 @@ const stepOneFields: IStep = {
   component: (props) => (
     <StepOne
       {...props}
+      validationSchema={stepOneFields.validationSchema}
       fieldGroups={[
         {
           title: "بيانات المنشأة الأساسية",
@@ -270,6 +271,7 @@ const stepTwoFields: IStep = {
   component: (props) => (
     <Step
       {...props}
+      validationSchema={stepTwoFields.validationSchema}
       fieldGroups={[
         {
           title: "البيانات المالية",

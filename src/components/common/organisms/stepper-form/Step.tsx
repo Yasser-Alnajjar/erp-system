@@ -2,17 +2,18 @@
 import React from "react";
 import { useFormikContext } from "formik";
 import { FieldRenderer, IFieldConfig } from "@components";
-import { cn } from "@lib/utils";
+import { cn, Utils } from "@lib/utils";
 interface IFieldGroup {
   title: string;
   fields: IFieldConfig[];
 }
 interface IStepProps {
   fieldGroups: IFieldGroup[];
+  validationSchema?: any;
   warperClass?: string;
 }
 export const Step = (props: IStepProps) => {
-  const { fieldGroups, warperClass } = props;
+  const { fieldGroups, validationSchema, warperClass } = props;
   const { errors } = useFormikContext();
   return (
     <div className={warperClass}>
@@ -44,6 +45,10 @@ export const Step = (props: IStepProps) => {
                           field.labelClassName
                         )}
                       >
+                        {Utils.isFieldRequired(
+                          field.name,
+                          validationSchema
+                        ) && <span className="text-error">*</span>}
                         {field.label}
                       </label>
                     ) : (

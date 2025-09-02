@@ -20,9 +20,14 @@ interface IFieldGroup {
 interface IStepProps {
   fieldGroups: IFieldGroup[];
   wrapperClass?: string;
+  validationSchema?: any;
 }
 
-export const StepOne = ({ fieldGroups, wrapperClass }: IStepProps) => {
+export const StepOne = ({
+  fieldGroups,
+  validationSchema,
+  wrapperClass,
+}: IStepProps) => {
   const [previewLogo, setPreviewLogo] = useState("");
 
   if (!fieldGroups?.length) return null;
@@ -42,10 +47,10 @@ export const StepOne = ({ fieldGroups, wrapperClass }: IStepProps) => {
       {firstFields.map((field) =>
         field.name === "logo" ? (
           <React.Fragment key={field.name}>
-            <Label id="logo">
-              <Avatar className="size-[100px]">
+            <Label id="logo" className="max-w-fit">
+              <Avatar className="size-[100px] cursor-pointer">
                 <AvatarImage src={previewLogo} />
-                <AvatarFallback>
+                <AvatarFallback className="hover:bg-muted/50 transition-colors">
                   <ImageUp />
                 </AvatarFallback>
               </Avatar>
@@ -103,7 +108,10 @@ export const StepOne = ({ fieldGroups, wrapperClass }: IStepProps) => {
         )
       )}
       {otherFields.length > 0 && (
-        <Step fieldGroups={[{ ...firstGroup, fields: otherFields }]} />
+        <Step
+          fieldGroups={[{ ...firstGroup, fields: otherFields }]}
+          validationSchema={validationSchema}
+        />
       )}
 
       {restGroups.length > 0 && <Step fieldGroups={restGroups} />}
