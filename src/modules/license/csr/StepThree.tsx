@@ -12,6 +12,7 @@ import {
   IFieldConfig,
   FieldArrayRenderer,
 } from "@components";
+import { Trash2 } from "lucide-react";
 
 interface IFieldGroup {
   title: string;
@@ -32,6 +33,7 @@ export default function StepThree({ fieldGroups }: IStepProps) {
         <div className="space-y-4">
           <Button
             type="button"
+            className="ms-auto"
             onClick={() =>
               push({
                 ministry: "",
@@ -48,40 +50,53 @@ export default function StepThree({ fieldGroups }: IStepProps) {
             إضافة ترخيص
           </Button>
 
-          <Table>
-            <TableHeader>
-              <TableRow>
-                {fieldGroups[0].fields.map((field) => (
-                  <TableHead key={field.name}>{field.label}</TableHead>
-                ))}
-                <TableHead>إجراءات</TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {values.licenses?.map((_: any, tableIndex: number) => (
-                <TableRow key={tableIndex}>
+          <div className="overflow-x-auto border p-1 rounded-lg shadow-[0px_12px_16px_-4px_#10182814]">
+            <Table className="text-center">
+              <TableHeader>
+                <TableRow className="border-secondary">
                   {fieldGroups[0].fields.map((field) => (
-                    <TableCell key={field.name}>
-                      <FieldArrayRenderer
-                        arrayName="licenses"
-                        index={tableIndex}
-                        field={field}
-                      />
-                    </TableCell>
-                  ))}
-                  <TableCell>
-                    <Button
-                      type="button"
-                      variant="error"
-                      onClick={() => remove(tableIndex)}
+                    <TableHead
+                      key={field.name}
+                      className="border-secondary first:border-0 last:border-0 border-x text-center"
                     >
-                      حذف
-                    </Button>
-                  </TableCell>
+                      {field.label}
+                    </TableHead>
+                  ))}
+                  <TableHead>إجراءات</TableHead>
                 </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+              </TableHeader>
+              <TableBody>
+                {values.licenses?.map((_: any, tableIndex: number) => (
+                  <TableRow
+                    key={tableIndex}
+                    className="border-b border-secondary"
+                  >
+                    {fieldGroups[0].fields.map((field) => (
+                      <TableCell
+                        key={field.name}
+                        className="border-secondary first:border-0 last:border-0 border-x text-center"
+                      >
+                        <FieldArrayRenderer
+                          arrayName="licenses"
+                          index={tableIndex}
+                          field={field}
+                        />
+                      </TableCell>
+                    ))}
+                    <TableCell className="flex items-center justify-center">
+                      <button
+                        type="button"
+                        className="text-error cursor-pointer "
+                        onClick={() => remove(tableIndex)}
+                      >
+                        <Trash2 />
+                      </button>
+                    </TableCell>
+                  </TableRow>
+                ))}
+              </TableBody>
+            </Table>
+          </div>
         </div>
       )}
     </FieldArray>

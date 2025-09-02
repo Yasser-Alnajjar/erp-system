@@ -2,6 +2,8 @@ import { useState } from "react";
 import { Formik, Form } from "formik";
 import { Button } from "@components";
 import { FormStepperProps } from "./FormSteeperTypes";
+import { cn } from "@lib/utils";
+import { VerticalStepper } from "./vertical-sepper";
 
 export const StepperForm = ({
   steps,
@@ -39,7 +41,47 @@ export const StepperForm = ({
     >
       {(formik) => (
         <Form className="space-y-6">
-          <CurrentComponent {...formik} />
+          <div className="grid gap-4 grid-cols-12">
+            <div className="col-span-10">
+              <div className="mb-10">
+                {currentStep.title && (
+                  <h1 className="font-semibold text-xl">{currentStep.title}</h1>
+                )}
+                {currentStep.description && (
+                  <p className="font-light text-foreground/70">
+                    {currentStep.description}
+                  </p>
+                )}
+              </div>
+              <CurrentComponent {...formik} />
+            </div>
+            <div className="col-span-2">
+              {/* <div className="flex flex-col gap-4">
+                {steps.map((step, index) => (
+                  <div
+                    key={index}
+                    className={cn(
+                      "flex items-center gap-2 cursor-pointer",
+                      stepIndex === index && "text-primary"
+                    )}
+                    onClick={() => setStepIndex(index)}
+                  >
+                    {index + 1}
+                    {step.title && (
+                      <span className="text-sm font-semibold">
+                        {step.title}
+                      </span>
+                    )}
+                  </div>
+                ))}
+              </div> */}
+              <VerticalStepper
+                steps={steps}
+                stepIndex={stepIndex}
+                setStepIndex={setStepIndex}
+              />
+            </div>
+          </div>
 
           <div className="flex justify-end gap-2">
             {toggleForm && (

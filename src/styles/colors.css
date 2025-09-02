@@ -6,7 +6,7 @@
   --color-cta: #0077c3;
   --color-cta-foreground: #ffffff;
 
-  --color-secondary: #2563eb;
+  --color-secondary: #e6f0fa;
   --color-secondary-foreground: #fff8fd;
 
   /* Custom Colors */
@@ -22,11 +22,12 @@
   /* Common */
   --color-popover: #ffffff;
   --color-popover-foreground: #394e6a;
-  --color-muted: #ebedef;
+  --color-muted: #d9d9d9;
   --color-muted-foreground: #394e6a;
   --color-accent: #f4f6fa;
   --color-accent-foreground: #394e6a;
   --color-border: #f4f6fa;
+  --color-border-disabled: #d2d6db;
   --color-input: #111111b2;
 
   /* Charts */

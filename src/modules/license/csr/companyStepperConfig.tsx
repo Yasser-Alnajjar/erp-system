@@ -3,10 +3,16 @@ import * as Yup from "yup";
 import StepThree from "./StepThree";
 import { Step } from "src/components/common/organisms/stepper-form";
 import { IStep } from "src/components/common/organisms/stepper-form/FormSteeperTypes";
+import { StepOne } from "./StepOne";
 
 const stepOneFields: IStep = {
+  title: "إنشاء حساب منشأة جديدة",
+  description:
+    "يرجى استكمال البيانات المطلوبة لإنشاء حساب منشأتك على المنصة، وبدء رحلتك في إدارة أعمالك بكفاءة وسهولة.",
+  stepTitle: "بيانات الشركة",
   label: "بيانات الشركة",
   initialValues: {
+    logo: "",
     companyNameAr: "",
     companyNameEn: "",
     companySize: "",
@@ -40,12 +46,26 @@ const stepOneFields: IStep = {
     city: Yup.string().required("مطلوب"),
   }),
   component: (props) => (
-    <Step
+    <StepOne
       {...props}
       fieldGroups={[
         {
           title: "بيانات المنشأة الأساسية",
           fields: [
+            {
+              name: "logo",
+              description: "يرجى إضافة شعار منشأتك",
+              type: "file",
+            },
+            {
+              name: "naturalId",
+              label: "الرقم الوطني الموحد",
+              placeholder: "الرقم الوطني الموحد",
+              description:
+                "قريبًا، استيراد بيانات المنشأة تلقائيًا بنقرة واحدة.",
+              type: "number",
+              disabled: true,
+            },
             {
               name: "companyNameAr",
               label: "اسم الشركة بالعربية",
@@ -220,6 +240,10 @@ const stepOneFields: IStep = {
 };
 
 const stepTwoFields: IStep = {
+  title: "إنشاء حساب منشأة جديدة",
+  stepTitle: "انشاء حساب",
+  description:
+    "يرجى استكمال البيانات المطلوبة لإنشاء حساب منشأتك على المنصة، وبدء رحلتك في إدارة أعمالك بكفاءة وسهولة.",
   label: "بيانات الترخيص",
   initialValues: {
     employeesCount: "",
@@ -327,6 +351,10 @@ const stepTwoFields: IStep = {
 };
 
 const stepThreeFields: IStep = {
+  title: "الأنشطة والرخص الخاصة بالمنشأة",
+  stepTitle: "الانشطة والرخص",
+  description:
+    "في هذه الصفحة، يمكنك إضافة وتعديل وإدارة جميع الرخص والأنشطة الاقتصادية الخاصة بمنشأتك لضمان التوافق مع المتطلبات.",
   label: "التراخيص",
   initialValues: {
     licenses: [],
