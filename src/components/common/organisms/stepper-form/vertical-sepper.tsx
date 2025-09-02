@@ -7,14 +7,9 @@ import { IStep } from "./FormSteeperTypes";
 interface VerticalStepperProps {
   steps: IStep[];
   stepIndex: number;
-  setStepIndex: (index: number) => void;
 }
 
-export const VerticalStepper = ({
-  steps,
-  stepIndex,
-  setStepIndex,
-}: VerticalStepperProps) => {
+export const VerticalStepper = ({ steps, stepIndex }: VerticalStepperProps) => {
   const locale = useLocale();
 
   return (
@@ -35,7 +30,6 @@ export const VerticalStepper = ({
               "flex items-start relative cursor-pointer min-h-[100px] gap-3",
               locale === "rtl" ? "flex-row-reverse" : "flex-row"
             )}
-            onClick={() => setStepIndex(index)}
           >
             {/* Circle */}
             <div

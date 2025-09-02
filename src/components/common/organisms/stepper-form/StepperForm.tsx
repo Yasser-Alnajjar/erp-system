@@ -2,7 +2,6 @@ import { useState } from "react";
 import { Formik, Form } from "formik";
 import { Button } from "@components";
 import { FormStepperProps } from "./FormSteeperTypes";
-import { cn } from "@lib/utils";
 import { VerticalStepper } from "./vertical-sepper";
 
 export const StepperForm = ({
@@ -56,30 +55,7 @@ export const StepperForm = ({
               <CurrentComponent {...formik} />
             </div>
             <div className="col-span-2">
-              {/* <div className="flex flex-col gap-4">
-                {steps.map((step, index) => (
-                  <div
-                    key={index}
-                    className={cn(
-                      "flex items-center gap-2 cursor-pointer",
-                      stepIndex === index && "text-primary"
-                    )}
-                    onClick={() => setStepIndex(index)}
-                  >
-                    {index + 1}
-                    {step.title && (
-                      <span className="text-sm font-semibold">
-                        {step.title}
-                      </span>
-                    )}
-                  </div>
-                ))}
-              </div> */}
-              <VerticalStepper
-                steps={steps}
-                stepIndex={stepIndex}
-                setStepIndex={setStepIndex}
-              />
+              <VerticalStepper steps={steps} stepIndex={stepIndex} />
             </div>
           </div>
 
